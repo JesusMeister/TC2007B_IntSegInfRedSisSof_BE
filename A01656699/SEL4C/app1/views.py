@@ -8,6 +8,7 @@ from rest_framework import permissions
 from SEL4C.app1.serializers import UserSerializer, GroupSerializer
 
 
+
 class UserViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
@@ -25,3 +26,13 @@ class GroupViewSet(viewsets.ModelViewSet):
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+from .models import Usuario  # Import your model
+from .serializers import UsuarioSerializer # Import your serializer
+
+class UsuarioViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows MyModel to be viewed or edited.
+    """
+    queryset = Usuario.objects.all()  # Set the queryset for the view
+    serializer_class = UsuarioSerializer  # Set the serializer class
+    permission_classes = [permissions.IsAuthenticated]  # Set the permission classes
